@@ -1,0 +1,29 @@
+<nav class="bg-white shadow" data-nav>
+	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 relative flex h-16 justify-between">
+		<div class="flex flex-1 justify-center items-stretch">
+			<div class="ml-6 flex space-x-8">
+				<a href="/" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% if req.originalUrl == '/' %}border-indigo-500 text-gray-900{% else %}border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 {% endif %}">Dashboard</a>
+				<a href="/secret-area" class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium {% if req.originalUrl == '/secret-area' %}border-indigo-500 text-gray-900{% else %}border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 {% endif %}">Secret Area</a>
+			</div>
+			<div class="relative ml-auto flex">
+				<div class="self-center">
+					<button type="button" class="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true" data-profile-button>
+						<span class="sr-only">Open user menu</span>
+						<div class="h-8 w-8 bg-indigo-500 rounded-full"></div>
+					</button>
+					<div
+						class="hidden absolute top-14 right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" data-profile-menu data-menu-state="closed">
+						<!-- Active: "bg-gray-100", Not Active: "" -->
+						{% if not data.username %}
+							<a href="/login" class="block px-4 py-2 text-sm {% if req.originalUrl == '/login' %}text-indigo-500{% else %}hover:text-gray-500 text-gray-700{% endif %}" role="menuitem" tabindex="-1" id="user-menu-item-0">Login</a>
+							<a href="/register" class="block px-4 py-2 text-sm {% if req.originalUrl == '/register' %}text-indigo-500{% else %}hover:text-gray-500 text-gray-700{% endif %}" role="menuitem" tabindex="-1" id="user-menu-item-1">Register</a>
+						{% endif %}
+						{% if data.username %}
+							<a href="/logout" class="block px-4 py-2 text-sm text-rose-700 hover:text-rose-500" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
