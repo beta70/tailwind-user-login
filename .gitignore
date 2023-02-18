@@ -128,3 +128,26 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+/coverage
+/cli
+/lib
+/peers
+/example
+.DS_Store
+.parcel-cache
+yarn.lock
+yarn-error.log
+types/generated/*.d.ts
+
+.turbo
+
+# Perf related files
+isolate*.log
+
+# Generated files
+/src/corePluginList.js
+
+# Generated files during tests
+/tests/evaluate-tailwind-functions.test.html
